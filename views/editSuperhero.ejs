@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Superhéroe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 min-h-screen p-6 text-gray-200">
+
+    <a href="/dashboard">
+        <button class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded shadow mb-4">Regresar a dashboard</button>
+    </a>
+
+    <h1 class="text-3xl font-bold mb-6">Editar</h1>
+
+    <form action="/heroes/<%= heroe._id %>/editar?_method=PUT" method="POST" class="bg-gray-800 p-6 rounded shadow max-w-lg mx-auto">
+        <label class="block mb-1">Nombre del Superhéroe:</label><br>
+        <input type="text" name="nombreSuperheroe" value="<%= heroe.nombreSuperheroe %>" required class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <label class="block mb-1">Nombre Real:</label><br>
+        <input type="text" name="nombreReal" value="<%= heroe.nombreReal %>" required class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <label class="block mb-1">Edad:</label><br>
+        <input type="number" name="edad" value="<%= heroe.edad %>" min="0" class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <label class="block mb-1">Planeta de Origen:</label><br>
+        <input type="text" name="planetaOrigen" value="<%= heroe.planetaOrigen %>" class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <label class="block mb-1">Debilidad:</label><br>
+        <input type="text" name="debilidad" value="<%= heroe.debilidad %>" class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <label class="block mb-1">Poderes (separados por coma):</label><br>
+        <input type="text" name="poderes" value="<%= heroe.poderes %>" class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <label class="block mb-1">Aliados (separados por coma):</label><br>
+        <input type="text" name="aliados" value="<%= heroe.aliados %>" class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <label class="block mb-1">Enemigos (separados por coma):</label><br>
+        <input type="text" name="enemigos" value="<%= heroe.enemigos %>" class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <label class="block mb-1">Creador:</label><br>
+        <input type="text" name="creador" value="<%= heroe.creador %>" class="w-full px-3 py-2 rounded bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        <br><br>
+
+        <button type="submit" class="bg-green-600 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded shadow">Actualizar Heroe</button>
+    </form>
+</body>
+</html>

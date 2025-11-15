@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 min-h-screen p-6 text-gray-200">
+<h1 class="text-3xl font-bold mb-6 text-center text-gray-100">Dashboard de Superhéroes</h1>
+
+    <a href="/addSuperhero" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded shadow mb-4">
+        <button>Agregar Superhéroe</button>
+    </a>
+
+    <table class="min-w-full bg-gray-800 rounded shadow overflow-hidden">
+        <tr class="bg-gray-700">
+            <th class="px-4 py-2 text-left">Nombre de superheroe</th>
+            <th class="px-4 py-2 text-left">Nombre real</th>
+            <th class="px-4 py-2 text-left">edad</th>
+            <th class="px-4 py-2 text-left">planeta de origen</th>
+            <th class="px-4 py-2 text-left">debilidad</th>
+            <th class="px-4 py-2 text-left">poderes</th>
+            <th class="px-4 py-2 text-left">aliados</th>
+            <th class="px-4 py-2 text-left">enemigos</th>
+            <th class="px-4 py-2 text-left">creador</th>
+            <th class="px-4 py-2 text-left">Boton1</th>
+            <th class="px-4 py-2 text-left">Boton2</th>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-700">
+        <% superheroes.forEach(hero => { %>
+            <td class="px-4 py-2"><%= hero.nombreSuperheroe %></td>
+            <td class="px-4 py-2"><%= hero.nombreReal %></td>
+            <td class="px-4 py-2"><%= hero.edad %></td>
+            <td class="px-4 py-2"><%= hero.planetaOrigen %></td>
+            <td class="px-4 py-2"><%= hero.debilidad %></td>
+            <td class="px-4 py-2"><%= hero.poderes %></td>
+            <td class="px-4 py-2"><%= hero.aliados %></td>
+            <td class="px-4 py-2"><%= hero.enemigos %></td>
+            <td class="px-4 py-2"><%= hero.creador %></td>
+            <td class="px-4 py-2">
+                <form action="/heroes/<%= hero._id %>/editar?_method=GET" method="POST">
+                    <button type="submit" class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-1 px-2 rounded">Editar</button>
+                </form>
+            </td>
+
+            <td class="px-4 py-2">
+                <form action="/heroes/<%= hero._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-1 px-2 rounded" onclick="return confirm('¿Seguro que querés eliminar este héroe?')">Eliminar</button>
+                </form>
+            </td>
+        <% }) %>
+        </tr>
+    </table>
+</html>
