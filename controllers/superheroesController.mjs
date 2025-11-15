@@ -1,5 +1,4 @@
 import {obtenerTodosLosSuperheroes, obtenerPorID, crearNuevoSuperheroe, actualizarSuperheroe, eliminarSuperheroePorID} from '../services/superheroesService.mjs';
-import {renderizarSuperheroe, renderizarListaSuperheroes} from '../views/responseVista.mjs';
 
 
 export async function obtenerTodosLosSuperheroesController(req, res){ 
@@ -23,7 +22,7 @@ export async function crearNuevoSuperheroeController(req, res){
 
         const superheroe= await crearNuevoSuperheroe(data);
         if(superheroe){
-            res.status(200).render("addSuperhero");
+            res.status(200).redirect("/dashboard");
         }
     } catch (error) {
         res.status(500).send({mensaje: 'Error al crear superheroe', error: error.message})
@@ -41,7 +40,7 @@ export async function actualizarSuperheroeController(req, res){
 
         const heroe =  await actualizarSuperheroe(data, id);
         if (!heroe) return res.status(404).send({ mensaje: "Héroe no encontrado" });  
-        return res.redirect(`/heroes/${heroe._id}/editar`);
+        return res.redirect("/dashboard");
     } catch (error) {
         res.status(500).send({mensaje: 'Error al actualizar superheroe', error: error.message})
     }
